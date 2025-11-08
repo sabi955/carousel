@@ -1,0 +1,106 @@
+<div class="carousel-container">
+  <div class="carousel-slide fade">
+    <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1200&q=60" alt="Cover 1">
+    <div class="caption">Selamat Datang di Website Kami 🌿</div>
+  </div>
+
+  <div class="carousel-slide fade">
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=60" alt="Cover 2">
+    <div class="caption">Belajar, Berkarya, dan Tumbuh Bersama 🌸</div>
+  </div>
+
+  <div class="carousel-slide fade">
+    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1200&q=60" alt="Cover 3">
+    <div class="caption">Inspirasi untuk Masa Depan ✨</div>
+  </div>
+
+  <!-- Tombol Next & Prev -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<style>
+.carousel-container {
+  position: relative;
+  max-width: 100%;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.carousel-slide {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  user-select: none;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.6);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+.fade {
+  animation: fadeEffect 1.5s ease-in-out;
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0.4;}
+  to {opacity: 1;}
+}
+</style>
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function plusSlides(n) {
+  slideIndex += n - 1;
+  showSlides();
+}
+
+function showSlides() {
+  let slides = document.getElementsByClassName("carousel-slide");
+  for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 4000); // Ganti otomatis setiap 4 detik
+}
+</script>
